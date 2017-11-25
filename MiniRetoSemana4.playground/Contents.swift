@@ -15,114 +15,47 @@ enum Velocidades : Int{
 
 class Auto {
     var velocidad : Velocidades
-    var cambioA : Bool = false
-    var cambioB : Bool = false
-    var cambioC : Bool = false
     
     init(){
         self.velocidad = Velocidades(velocidadInicial: Velocidades.Apagado)
-        cambioA = true
     }
     
     func cambioDeVelocidad() -> ( actual : Int, velocidadEnCadena: String) {
         
-        
-        
-        
-        
         if self.velocidad == .Apagado {
-            
-            
             self.velocidad = .VelocidadBaja
-            
-            
         } else if self.velocidad == .VelocidadBaja {
-            
-            
             self.velocidad = .VelocidadMedia
-            
-            
         } else if self.velocidad == .VelocidadMedia {
-            
-            
             self.velocidad = .VelocidadAlta
-            
-            
         } else if self.velocidad == .VelocidadAlta {
-            
-            
             self.velocidad = .VelocidadMedia
-            
-            
         }
-        
-        
-        
-        
         
         return (self.velocidad.rawValue, "")
-        
-        
     }
     
-    
-    
-    
-    
     func texto() -> String {
-        
-        
         var label: String
-        
-        
-        
-        
-        
         switch(self.velocidad.rawValue) {
-            
-            
-        case 0 :
-            
-            
-            label = "Apagado"
-            
-            
-        case 20 :
-            
-            
-            label = "Velocidad baja"
-            
-            
-        case 50 :
-            
-            
-            label = "Velocidad media"
-            
-            
-        case 120 :
-            
-            
-            label = "Velocidad alta"
-            
-            
-        default :
-            label = "Apagado"
-            
+            case 0 :
+                label = "Apagado"
+            case 20 :
+                label = "Velocidad baja"
+            case 50 :
+                label = "Velocidad media"
+            case 120 :
+                label = "Velocidad alta"
+            default :
+                label = "Apagado"
         }
-        
         return "\(self.velocidad.rawValue), \(label)"
-        
     }
 }
 
 var auto = Auto()
 
-
 for var i = 0; i<20; i++ {
-    
     print(auto.texto())
-    
     auto.cambioDeVelocidad()
-    
-    
 }
